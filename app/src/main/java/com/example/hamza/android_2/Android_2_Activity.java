@@ -7,20 +7,38 @@ import android.widget.TextView;
 
 import java.text.NumberFormat;
 
+
+
 public class Android_2_Activity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_2_);
     }
+    private int num=5;
 
     public void submitOrder(View view)
     {
-        display(1);
-        displayPrice(1*5);
+        display(num);
+        displayPrice(num*5);
     }
+    public void increment(View view)
+    {
+        num++;
+        display(num);
+        displayPrice(num*5);
 
+    }
+    public void decrement(View view)
+    {
+        num--;
+        display(num);
+        displayPrice(num*5);
+
+    }
 
     private void display(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_view);
@@ -33,4 +51,6 @@ public class Android_2_Activity extends AppCompatActivity {
         TextView priceTextView = (TextView) findViewById(R.id.price_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
+
+
 }
